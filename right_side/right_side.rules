@@ -1,0 +1,85 @@
+
+(rules PCB right_side
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (eu.mihosoft.freerouting.autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 2885)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.3)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.8)
+    )
+  )
+  (rule
+    (width 600.0)
+    (clear 600.2)
+    (clear 300.0 (type smd_to_turn_gap))
+    (clear 150.0 (type smd_smd))
+  )
+  (padstack "Via[0-1]_1700:1000_um"
+    (shape
+      (circle F.Cu 1700.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 1700.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_1700:1000_um" "Via[0-1]_1700:1000_um" default
+  )
+  (via 
+    "Via[0-1]_1700:1000_um-kicad_default" "Via[0-1]_1700:1000_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_1700:1000_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_1700:1000_um-kicad_default"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 600.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    "Net-(D0x7-Pad2)" Column7 Column8 "Net-(D0x8-Pad2)" Column9 "Net-(D0x9-Pad2)" Column10 "Net-(D0x10-Pad2)"
+    "Net-(D0x11-Pad2)" Column11 "Net-(D0x12-Pad2)" Column12 "Net-(D0x13-Pad2)" Column13 "Net-(D0x14-Pad2)" Column14
+    "Net-(D0x15-Pad2)" Column15 "Net-(D1x7-Pad2)" "Net-(D1x8-Pad2)" "Net-(D1x9-Pad2)" "Net-(D1x10-Pad2)" "Net-(D1x11-Pad2)" "Net-(D1x12-Pad2)"
+    "Net-(D1x13-Pad2)" "Net-(D1x14-Pad2)" "Net-(D1x15-Pad2)" "Net-(D2x7-Pad2)" "Net-(D2x8-Pad2)" "Net-(D2x9-Pad2)" "Net-(D2x10-Pad2)" "Net-(D2x11-Pad2)"
+    "Net-(D2x12-Pad2)" "Net-(D2x13-Pad2)" "Net-(D2x14-Pad2)" "Net-(D2x15-Pad2)" "Net-(D3x8-Pad2)" "Net-(D3x9-Pad2)" "Net-(D3x10-Pad2)" "Net-(D3x11-Pad2)"
+    "Net-(D3x12-Pad2)" "Net-(D3x13-Pad2)" "Net-(D3x14-Pad2)" "Net-(D3x15-Pad2)" "Net-(D4x8-Pad2)" "Net-(D4x9-Pad2)" "Net-(D4x10-Pad2)" "Net-(D4x11-Pad2)"
+    "Net-(D4x12-Pad2)" "Net-(D4x13-Pad2)" "Net-(D4x14-Pad2)" "Net-(D4x15-Pad2)" "Net-(D5x7-Pad2)" "Net-(D5x9-Pad2)" "Net-(D5x11-Pad2)" "Net-(D5x12-Pad2)"
+    "Net-(D5x13-Pad2)" "Net-(D5x14-Pad2)" "Net-(D5x15-Pad2)" "Net-(D6x7-Pad2)" "Net-(D6x9-Pad2)" "Net-(D6x11-Pad2)" "Net-(D6x12-Pad2)" "Net-(D6x13-Pad2)"
+    "Net-(D6x14-Pad2)" "Net-(D6x15-Pad2)" VCC SDA SCK GND Row0 Row1
+    Row2 Row3 Row4 Row5 Row6
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 600.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
